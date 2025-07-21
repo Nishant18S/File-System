@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folder Sizes Dashboard</title>
+  <style>
+    :root {
+      --dark-bg: #121212;
+      --darker-bg: #0a0a0a;
+      --primary-accent: #6a45e0;
+      --secondary-accent: #4a25b3;
+      --text-primary: #e0e0e0;
+      --text-secondary: #b0b0b0;
+      --border-thick: 3px solid #333;
+      --border-thin: 2px solid #444;
+      --glow-effect: 0 0 15px rgba(106, 69, 224, 0.7);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h2 {
+      text-align: center;
+      color: var(--text-primary);
+      margin: 30px 0;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px rgba(106, 69, 224, 0.5);
+      position: relative;
+      padding-bottom: 15px;
+      animation: titleGlow 3s infinite alternate;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
+      border-radius: 2px;
+    }
+    
+    .table-wrapper {
+      border-radius: 8px;
+      overflow: hidden;
+      border: var(--border-thick);
+      box-shadow: var(--glow-effect), 0 10px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: tableEntry 0.8s forwards 0.3s;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--darker-bg);
+    }
+    
+    th, td {
+      padding: 15px 20px;
+      text-align: center;
+      border-bottom: var(--border-thin);
+    }
+    
+    th {
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-right: var(--border-thin);
+    }
+    
+    th:last-child {
+      border-right: none;
+    }
+    
+    tr {
+      transition: var(--transition);
+    }
+    
+    tr:not(:first-child):hover {
+      background-color: rgba(106, 69, 224, 0.1);
+      transform: scale(1.01);
+      box-shadow: 0 0 20px rgba(106, 69, 224, 0.3);
+    }
+    
+    td {
+      border-right: var(--border-thin);
+      position: relative;
+    }
+    
+    td:last-child {
+      border-right: none;
+    }
+    
+    .size-bytes {
+      font-family: 'Fira Code', monospace;
+      font-weight: bold;
+      color: var(--primary-accent);
+    }
+    
+    /* Animations */
+    @keyframes titleGlow {
+      0% { text-shadow: 0 0 10px rgba(106, 69, 224, 0.5); }
+      100% { text-shadow: 0 0 20px rgba(106, 69, 224, 0.8), 0 0 30px rgba(106, 69, 224, 0.3); }
+    }
+    
+    @keyframes tableEntry {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes rowEntry {
+      from { opacity: 0; transform: translateX(-10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    tr {
+      animation: rowEntry 0.6s forwards;
+    }
+    
+    tr:nth-child(1) { animation-delay: 0.4s; }
+    tr:nth-child(2) { animation-delay: 0.5s; }
+    tr:nth-child(3) { animation-delay: 0.6s; }
+    tr:nth-child(4) { animation-delay: 0.7s; }
+    tr:nth-child(5) { animation-delay: 0.8s; }
+    tr:nth-child(n+6) { animation-delay: 0.9s; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .table-wrapper {
+        border: 2px solid #333;
+      }
+      
+      th, td {
+        padding: 10px 12px;
+      }
+    }
+    
+    /* Special effects */
+    td::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-accent);
+      transition: var(--transition);
+    }
+    
+    td:hover::after {
+      width: 100%;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h2>📁 FOLDER SIZE ANALYTICS</h2>
+    <div class="table-wrapper">
+      <table id="sizeTable">
+        <thead>
+          <tr>
+            <th>Node ID</th>
+            <th>Folder Name</th>
+            <th>Size (Bytes)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data will be inserted here by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="sizes.js"></script>
+</body>
+</html>
