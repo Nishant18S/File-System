@@ -143,6 +143,22 @@ project-root/
 
 ---
 
+## ✅ Output
+---
+<img width="1918" height="1072" alt="Screenshot 2025-07-22 000137" src="https://github.com/user-attachments/assets/5b0e633e-01d2-4d34-801c-cc8869477e44" />
+
+<img width="1918" height="1078" alt="Screenshot 2025-07-21 235322" src="https://github.com/user-attachments/assets/8ba70681-0ef5-4719-83ef-6638e9e620f5" />
+
+<img width="1918" height="1078" alt="Screenshot 2025-07-21 235401" src="https://github.com/user-attachments/assets/fa7c248f-43d9-4286-b8af-b4da2a9bfda0" />
+
+<img width="1913" height="1027" alt="Screenshot 2025-07-21 235224" src="https://github.com/user-attachments/assets/360f1e3a-b18e-46cd-9b41-e7ba47269f06" />
+
+<img width="1918" height="1030" alt="Screenshot 2025-07-22 000535" src="https://github.com/user-attachments/assets/c2cb4cd4-69c1-4b2f-860e-097c1962de46" />
+
+<img width="1918" height="1032" alt="Screenshot 2025-07-22 000652" src="https://github.com/user-attachments/assets/c4324a53-791e-415e-802e-7d36d81ef5de" />
+
+---
+
 ## 📄 License
 
-MIT License © 2025 [Your Name](https://github.com/yourusername)
+MIT License © 2025 [Nishant Sankar Swain](https://github.com/Nishant18S)
